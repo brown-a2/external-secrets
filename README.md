@@ -11,7 +11,7 @@ For each app, ESO watches an `ExternalSecret` CR, pulls the listed keys from GCP
 | Path | Scope | GCP project | Target Secret(s) |
 |------|-------|-------------|------------------|
 | `event-tracker/` | namespace `event-tracker` | `event-tracker-474419` | `event-tracker-secrets` (DB, Google OAuth, Supabase, cookie/allowlist) — bundled: one GSM secret `event_tracker_secrets` (JSON) via `dataFrom.extract` |
-| `wordpress-ms-prod/` | namespace `wordpress-ms-prod` | `wordpress-ms-prod-444322` | `mariadb-secrets`, `wordpress-ms-secrets` (WP multisite, S3 uploads, SMTP, admin) |
+| `wordpress-ms-prod/` | namespace `wordpress-ms-prod` | `wordpress-ms-prod-444322` | `mariadb-secrets`, `wordpress-ms-secrets` (WP multisite, S3 uploads, SMTP, admin) — bundled: two GSM secrets `wordpress_ms_mariadb_secrets` + `wordpress_ms_secrets` (JSON) via `dataFrom.extract` |
 | `totoro-media/` | namespace `totoro-media` | `totoro-media` | `totoro-media-secrets` (DB, Google OAuth, Cloudflare R2, Dropbox, allowlist) — bundled: one GSM secret `totoro_media_secrets` (JSON) via `dataFrom.extract` |
 | `totoro-finance/` | namespace `totoro-finance` | `totoro-finance` | `totoro-finance-secrets` (DB, `TOKEN_ENC_KEY`, `SUPERADMIN_*`, `MONZO_*`) — bundled: one GSM secret `totoro_finance_secrets` (JSON) via `dataFrom.extract` |
 | `totoro-ox-k3s-cluster/` | cluster-wide | `totoro-ox-k3s-cluster` | `cloudflare-api-token` in `certmanager` ns (used by cert-manager for DNS-01) |
