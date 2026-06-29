@@ -14,6 +14,7 @@ For each app, ESO watches an `ExternalSecret` CR, pulls the listed keys from GCP
 | `wordpress-ms-prod/` | namespace `wordpress-ms-prod` | `wordpress-ms-prod-444322` | `mariadb-secrets`, `wordpress-ms-secrets` (WP multisite, S3 uploads, SMTP, admin) — bundled: two GSM secrets `wordpress_ms_mariadb_secrets` + `wordpress_ms_secrets` (JSON) via `dataFrom.extract` |
 | `totoro-media/` | namespace `totoro-media` | `totoro-media` | `totoro-media-secrets` (DB, Google OAuth, Cloudflare R2, Dropbox, allowlist) — bundled: one GSM secret `totoro_media_secrets` (JSON) via `dataFrom.extract` |
 | `totoro-finance/` | namespace `totoro-finance` | `totoro-finance` | `totoro-finance-secrets` (DB, `TOKEN_ENC_KEY`, `SUPERADMIN_*`, `MONZO_*`) — bundled: one GSM secret `totoro_finance_secrets` (JSON) via `dataFrom.extract` |
+| `totoro-books/` | namespace `totoro-books` | `totoro-books` | `totoro-books-secrets` (DB, Google OAuth, Cloudflare R2) — bundled: one GSM secret `totoro_books_secrets` (JSON) via `dataFrom.extract` |
 | `totoro-ox-k3s-cluster/` | cluster-wide | `totoro-ox-k3s-cluster` | `cloudflare-api-token` in `certmanager` ns (used by cert-manager for DNS-01) |
 | `applications/` | ArgoCD | — | Application source spec(s) pointing back at this repo |
 
@@ -31,6 +32,7 @@ Each `SecretStore` references a pre-existing Kubernetes Secret holding a GCP ser
 | wordpress-ms-prod | `gcp-credentials-wordpress-ms-prod` | `key.json` |
 | totoro-media | `gcp-credentials-totoro-media` | `key.json` |
 | totoro-finance | `gcp-credentials-totoro-finance` | `key.json` |
+| totoro-books | `gcp-credentials-totoro-books` | `key.json` |
 | totoro-ox-k3s-cluster (cluster) | `gcp-cluster-secret-manager-credentials` | `credentials.json` |
 
 ## Conventions
